@@ -25,6 +25,7 @@ public class Menu {
                     break;
                 case 3:
                     produto.valorTotal();
+                    produto.calcularPrecoTotal();
                     break;
                 case 4:
                     System.out.println(" Saindo... ");

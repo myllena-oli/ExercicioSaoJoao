@@ -87,6 +87,14 @@ public class Produto {
         }
         System.out.println("A soma total dos produtos é "+ valor);
     }
+    public void calcularPrecoTotal(){
+
+        for (Produto produto : produtos) {
+
+            System.out.println("Nome: " + produto.getNomeProduto() +" Preço Total:"+ (produto.getQuantidade()* produto.getValorUnitario()));
+
+        }
+    }
     public void setNomeProduto(String nomeProduto) {
         this.nomeProduto = nomeProduto;
     }
