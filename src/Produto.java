@@ -21,7 +21,7 @@ public class Produto {
     }
     public void cadastrarProduto(){
         System.out.println("Informe o nome do produto: ");
-        setNomeProduto(entrada.next());
+        setNomeProduto(entrada.nextLine());
         System.out.println("Informe a quantidade: ");
         setQuantidade(entrada.nextInt());
         System.out.println("Informe o valor unitário do produto: ");
@@ -31,10 +31,13 @@ public class Produto {
         int quantidadeIngred = entrada.nextInt();
         entrada.nextLine();
 
+
         for (int i = 0; i <quantidadeIngred ; i++) {
             System.out.println("Informe o ingrediente " + (i+1) +":");
-            ingredientes.add(entrada.next());
+            ingredientes.add(entrada.nextLine());
         }
+
+        System.out.println("Produto cadastrado com sucesso! ");
         Produto produto = new Produto(getNomeProduto(), getQuantidade(),getValorUnitario(),getIngredientes());
         produtos.add(produto);
 
