@@ -22,7 +22,7 @@ public class Produto {
 
     public void cadastrarProduto(){
         System.out.println("Informe o nome do produto: ");
-        setNomeProduto(entrada.next());
+        setNomeProduto(entrada.nextLine());
         System.out.println("Informe a quantidade: ");
         setQuantidade(entrada.nextInt());
         System.out.println("Informe o valor unitário do produto: ");
@@ -32,19 +32,63 @@ public class Produto {
         int quantidadeIngred = entrada.nextInt();
         entrada.nextLine();
 
+        List<String> ingredientes = new ArrayList<>();
         for (int i = 0; i <quantidadeIngred ; i++) {
             System.out.println("Informe o ingrediente " + (i+1) +":");
-            ingredientes.add(entrada.next());
+            ingredientes.add(entrada.nextLine());
         }
-        Produto produto = new Produto(getNomeProduto(), getQuantidade(),getValorUnitario(),getIngredientes());
+
+        System.out.println("Produto cadastrado com sucesso! ");
+        Produto produto = new Produto(getNomeProduto(), getQuantidade(),getValorUnitario(),ingredientes);
         produtos.add(produto);
 
     }
+
     public Double calcularPreçoTotal(){
         int quantidade = this.getQuantidade();
         double valorUnitario = this.getValorUnitario();
         return quantidade*valorUnitario;
     }
+
+
+    public void verProdutos() {
+        System.out.println("\nAqui estão os produtos!\n");
+        for (Produto produto : produtos) {
+            System.out.println("Nome: " + produto.getNomeProduto());
+
+        }
+        while (true) {
+            System.out.println("\nDeseja ver algum produto específico? \n1 - Sim\n2 - Não");
+            int opcao = entrada.nextInt();
+            entrada.nextLine();
+            if (opcao == 1) {
+                System.out.println("Digite o nome do produto: ");
+                produtoEspecifico(entrada.nextLine());
+            } else if (opcao == 2) {
+                return;
+            } else {
+                System.out.println("Opção inválida! Tente novamente...\n");
+            }
+        }
+
+    }
+    public void produtoEspecifico(String produtoSelecionado){
+        Produto selecionado = null;
+        for (Produto produto : produtos) {
+            if(produto.getNomeProduto().equalsIgnoreCase(produtoSelecionado)){
+                selecionado=produto;
+            }
+        }
+        if (selecionado!=null){
+            System.out.printf("Nome: %s    Quantidade: %d    Valor unitário: %.2f    Ingredientes: %s\n",
+                    selecionado.getNomeProduto(), selecionado.getQuantidade(), selecionado.getValorUnitario(),
+                    selecionado.getIngredientes());
+        }else{
+            System.out.println("Produto não encontrado.");
+        }
+    }
+
+
     public void setNomeProduto(String nomeProduto) {
         this.nomeProduto = nomeProduto;
     }
