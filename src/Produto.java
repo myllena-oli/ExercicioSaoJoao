@@ -19,6 +19,7 @@ public class Produto {
         this.valorUnitario = valorUnitario;
         this.ingredientes = ingredientes;
     }
+
     public void cadastrarProduto(){
         System.out.println("Informe o nome do produto: ");
         setNomeProduto(entrada.next());
@@ -39,7 +40,11 @@ public class Produto {
         produtos.add(produto);
 
     }
-
+    public Double calcularPreçoTotal(){
+        int quantidade = this.getQuantidade();
+        double valorUnitario = this.getValorUnitario();
+        return quantidade*valorUnitario;
+    }
     public void setNomeProduto(String nomeProduto) {
         this.nomeProduto = nomeProduto;
     }
