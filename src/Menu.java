@@ -21,7 +21,7 @@ public class Menu {
                     produto.cadastrarProduto();
                     break;
                 case 2:
-                    //produto.verProdutos();
+                    produto.verProdutos();
                     break;
                 case 3:
                     //produto.valorTotal();
@@ -33,7 +33,7 @@ public class Menu {
                     System.out.println("Opçao invalida. Tente novamente!");
             }
             System.out.println();
-        }while (opcao != '4');
+        }while (opcao == '4');
 
     }
 }
