@@ -79,7 +79,14 @@ public class Produto {
             System.out.println("Produto não encontrado.");
         }
     }
-
+    public void valorTotal(){
+        double valor = 00.00;
+        for (Produto produto: produtos) {
+            double soma = produto.getQuantidade() * produto.getValorUnitario();
+            valor += soma;
+        }
+        System.out.println("A soma total dos produtos é "+ valor);
+    }
     public void setNomeProduto(String nomeProduto) {
         this.nomeProduto = nomeProduto;
     }
@@ -107,6 +114,5 @@ public class Produto {
     public List<String> getIngredientes() {
         return ingredientes;
     }
-
 
 }
